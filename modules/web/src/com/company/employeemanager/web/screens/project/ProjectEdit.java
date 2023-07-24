@@ -7,7 +7,6 @@ import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.model.InstanceContainer;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.employeemanager.entity.Project;
-import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
 
 import javax.inject.Inject;
 
