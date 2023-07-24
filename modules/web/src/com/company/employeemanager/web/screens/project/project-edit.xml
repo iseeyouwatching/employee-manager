@@ -38,7 +38,7 @@
                 </actions>
                 <columns>
                     <column id="fullName"/>
-                    <column id="checkBox" caption="Участие в проекте" width="50" generator="generateCheckBox"/>
+                    <column id="checkBox" caption="Участие в проекте" width="100" generator="generateCheckBox"/>
                 </columns>
             </table>
         </groupBox>

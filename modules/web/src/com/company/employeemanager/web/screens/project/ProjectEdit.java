@@ -1,6 +1,7 @@
 package com.company.employeemanager.web.screens.project;
 
 import com.company.employeemanager.entity.Employee;
+import com.haulmont.cuba.gui.UiComponents;
 import com.haulmont.cuba.gui.components.CheckBox;
 import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.model.InstanceContainer;
@@ -20,13 +21,11 @@ public class ProjectEdit extends StandardEditor<Project> {
     private InstanceContainer<Project> projectDc;
 
     @Inject
-    private ComponentsFactory componentsFactory;
+    private UiComponents uiComponents;
 
     public Component generateCheckBox(Employee employee) {
-        CheckBox checkBox = componentsFactory.createComponent(CheckBox.class);
-
+        CheckBox checkBox = uiComponents.create(CheckBox.class);
         Project editedProject = projectDc.getItem();
-
         checkBox.setValue(editedProject.getEmployees().contains(employee));
         checkBox.addValueChangeListener(e -> {
             if (Boolean.TRUE.equals(e.getValue())) {
