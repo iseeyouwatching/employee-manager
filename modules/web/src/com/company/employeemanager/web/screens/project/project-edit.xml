@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://projectEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.employeemanager.web.screens.project">
+    <data>
+        <instance id="projectDc"
+                  class="com.company.employeemanager.entity.Project">
+            <view extends="_local">
+                <property name="employees" view="_minimal"/>
+            </view>
+            <loader/>
+            <collection id="employeesDc" property="employees"/>
+        </instance>
+        <collection id="employeesDc"
+                    class="com.company.employeemanager.entity.Employee">
+            <view extends="_local"/>
+            <loader id="employeesDl">
+                <query>
+                    <![CDATA[select e from employeemanager_Employee e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="projectDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+            </column>
+        </form>
+        <groupBox id="employeesBox" caption="msg://com.company.employeemanager.entity/Project.employees">
+            <table id="employeesTable" dataContainer="employeesDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="fullName"/>
+                    <column id="checkBox" caption="Участие в проекте" width="50" generator="generateCheckBox"/>
+                </columns>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
