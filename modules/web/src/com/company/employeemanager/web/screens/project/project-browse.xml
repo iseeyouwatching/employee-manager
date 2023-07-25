@@ -10,7 +10,7 @@
             <view extends="_local"/>
             <loader id="projectsDl">
                 <query>
-                    <![CDATA[select e from employeemanager_Project e]]>
+                    <![CDATA[select e from employeemanager_Project e where size(e.employees) > 1]]>
                 </query>
             </loader>
         </collection>
